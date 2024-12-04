@@ -6,7 +6,7 @@ const Navbar = () => {
         <div className="navbar  px-6 py-3">
         <div className="navbar-start">
           <div className="dropdown">
-            <div tabIndex={0} role="button" className="btn bg-white btn-ghost md:hidden">
+            <div tabIndex={0} role="button" className="btn bg-white btn-ghost lg:hidden">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-5 w-5"
@@ -43,7 +43,7 @@ const Navbar = () => {
             </div>
             </Link>
         </div>
-        <div className="navbar-center hidden md:flex">
+        <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
            <NavLink to={'/'}>
            <li className='text-[#2D3097] font-semibold'><a>Home</a></li>

@@ -5,12 +5,12 @@ const categories = [
   { name: "Gym Equipment", icon: "gym-equipment-icon-url" },
   { name: "Indoor Games", icon: "indoor-games-icon-url" },
   { name: "Sports", icon: "sports-icon-url" },
-  { name: "Yoga Item", icon: "yoga-item-icon-url" },
-  { name: "Sports Wear", icon: "sports-wear-icon-url" },
-  { name: "Swimming Item", icon: "swimming-item-icon-url" },
-  { name: "Dumbbells", icon: "dumbbells-icon-url" },
-  { name: "Personal Fitness", icon: "personal-fitness-icon-url" },
-  { name: "Basketball", icon: "basketball-icon-url" },
+  // { name: "Yoga Item", icon: "yoga-item-icon-url" },
+  // { name: "Sports Wear", icon: "sports-wear-icon-url" },
+  // { name: "Swimming Item", icon: "swimming-item-icon-url" },
+  // { name: "Dumbbells", icon: "dumbbells-icon-url" },
+  // { name: "Personal Fitness", icon: "personal-fitness-icon-url" },
+  // { name: "Basketball", icon: "basketball-icon-url" },
   ];
 
 const Categories = () => {
