@@ -1,6 +1,7 @@
 import React from 'react';
 import Banner from '../Components/Banner/Banner';
 import Categories from '../Components/Categories/Categories';
+import Featured from '../Components/Featured/Featured';
 
 const Home = () => {
     return (
@@ -10,6 +11,9 @@ const Home = () => {
            </section>
            <section>
             <Categories></Categories>
+           </section>
+           <section>
+            <Featured></Featured>
            </section>
         </div>
     );
