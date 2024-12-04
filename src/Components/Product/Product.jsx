@@ -11,9 +11,6 @@ const Product = () => {
             .then(data => setProducts(data));
     }, [])
 
-    const handleView=(id)=>{
-        console.log(id);
-    }
     return (
        <div className='grid md:grid-cols-2 gap-3 lg:grid-cols-3'>
         {
@@ -28,7 +25,7 @@ const Product = () => {
                 <div className="card-body">
                     <h2 className="card-title">Name:{product.name}</h2>
                     <p className='font-semibold'>Price:{product.price}</p>
-                    <Link onClick={()=>handleView(product._id)}>
+                    <Link to={`/details/${product._id}`}>
                     <div className="card-actions justify-end">
                         <button className="btn btn-primary">View Details</button>
                     </div>

@@ -7,6 +7,7 @@ import MyEquipmentList from './Pages/MyEquipmentList';
 import Home from './Pages/Home';
 import Login from './Components/Login/Login';
 import Register from './Components/Register/Register';
+import Details from './Pages/Details';
 
 const Router = createBrowserRouter([
     {
@@ -36,6 +37,11 @@ const Router = createBrowserRouter([
             {
                 path:'/register',
                 element:<Register></Register>
+            },
+            {
+                path:'/details/:id',
+                element:<Details></Details>,
+                loader:({params})=> fetch(`http://localhost:5000/products/${params.id}`)
             }
             
         ]
