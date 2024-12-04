@@ -3,6 +3,7 @@ import Banner from '../Components/Banner/Banner';
 import Categories from '../Components/Categories/Categories';
 import Featured from '../Components/Featured/Featured';
 import Reviews from '../Components/Reviews/Reviews';
+import Product from '../Components/Product/Product';
 
 const Home = () => {
     return (
@@ -12,6 +13,9 @@ const Home = () => {
            </section>
            <section>
             <Categories></Categories>
+           </section>
+           <section>
+            <Product></Product>
            </section>
            <section>
             <Featured></Featured>

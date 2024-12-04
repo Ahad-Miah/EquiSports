@@ -1,27 +1,52 @@
 import React from 'react';
-
+import Swal from 'sweetalert2'
 const AddEquipment = () => {
     const handleAddEquipment = (e) => {
         e.preventDefault();
 
-        const form=e.target;
+        const form = e.target;
 
-        const image=form.photo.value;
-        const name=form.name.value;
-        const category=form.category.value;
-        const stockStatus=form.stockStatus.value;
-        const price=form.price.value;
-        const rating=form.rating.value;
-        const customization=form.customization.value;
-        const time=form.time.value;
-        const description=form.description.value;
+        const image = form.photo.value;
+        const name = form.name.value;
+        const category = form.category.value;
+        const stockStatus = form.stockStatus.value;
+        const price = form.price.value;
+        const rating = form.rating.value;
+        const customization = form.customization.value;
+        const time = form.time.value;
+        const description = form.description.value;
 
-        const itemInfo={image,name,category,stockStatus,price,rating,customization,time,description};
+        const itemInfo = { image, name, category, stockStatus, price, rating, customization, time, description };
 
         console.log(itemInfo);
-        
+            fetch(`http://localhost:5000/products`,{
+                method:"POST",
+                headers:{
+                    'content-type':'application/json',
+                },
+                body:JSON.stringify(itemInfo)
+            })
+            .then(res=>res.json())
+            .then(result=>{
+                form.reset();
+                console.log(result)
+                
+                 if(result.insertedId){
+                        Swal.fire({
+                            title: "Added Successfully!",
+                            text: "",
+                            icon: "success"
+                          });
+                    }
+                   
+            }
+               );
+
     }
 
+    const now = new Date();
+    const hours = now.getHours() % 12 || 12; 
+    const minutes = now.getMinutes().toString().padStart(2, '0');
 
     return (
         <div className='w-full mx-auto border p-6 my-12'>
@@ -101,9 +126,9 @@ const AddEquipment = () => {
                     <div className='w-full font-semibold'>
                         Processing Time (delivery time)
                         <input
-                            type="text"
+                            type="time"
                             name='time'
-                            placeholder="Processing time"
+                            defaultValue={`${hours}:${minutes}`}
                             className="input input-bordered input-info w-full" />
                     </div>
 
@@ -113,15 +138,15 @@ const AddEquipment = () => {
                     <div className='w-full font-semibold'>
                         <h1>Description</h1>
                         <textarea
-                        name='description'
-                        className="textarea w-full textarea-info" placeholder="Add Description"></textarea>
+                            name='description'
+                            className="textarea w-full textarea-info" placeholder="Add Description"></textarea>
                     </div>
 
                 </div>
                 <div className='flex justify-between gap-4 w-full'>
 
                     <div className='w-full font-semibold'>
-                    <button className="btn w-full btn-outline btn-primary">Add Item</button>
+                        <button className="btn w-full btn-outline btn-primary">Add Item</button>
                     </div>
 
                 </div>
