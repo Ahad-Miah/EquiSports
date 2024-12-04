@@ -9,7 +9,9 @@ const MainLyout = () => {
             <nav className='w-full'>
             <Navbar></Navbar>
             </nav>
+            <section className='max-w-[90%] mx-auto'>
             <Outlet></Outlet>
+            </section>
             <Footer></Footer>
         </div>
     );
