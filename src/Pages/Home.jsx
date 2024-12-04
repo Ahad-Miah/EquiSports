@@ -2,6 +2,7 @@ import React from 'react';
 import Banner from '../Components/Banner/Banner';
 import Categories from '../Components/Categories/Categories';
 import Featured from '../Components/Featured/Featured';
+import Reviews from '../Components/Reviews/Reviews';
 
 const Home = () => {
     return (
@@ -14,6 +15,9 @@ const Home = () => {
            </section>
            <section>
             <Featured></Featured>
+           </section>
+           <section>
+            <Reviews></Reviews>
            </section>
         </div>
     );
