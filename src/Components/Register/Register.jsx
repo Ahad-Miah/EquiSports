@@ -1,10 +1,13 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
-import { Link } from "react-router-dom";
-
+import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../AuthProvider/Authprovider";
 
 const Register = () => {
+
+  const {register,handleUpdateProfile,setUser}=useContext(AuthContext);
+  const navigate=useNavigate();
 
         const handleRegistration=(e)=>{
             e.preventDefault();
@@ -14,7 +17,23 @@ const Register = () => {
             const photo=e.target.photo.value;
             const password=e.target.password.value;
 
-            console.log(name,email,photo,password);
+            const passwordRegex = /^(?=.*[A-Z])(?=.*[a-z]).{6,}$/;
+
+        if(!passwordRegex.test(password)){
+            alert("Password length Should be  Six and at least one uppercase and one lowercase letter !");
+            return;
+        }
+        register(email,password)
+        .then(res=>{
+          setUser(res.user);
+          handleUpdateProfile(name,photo)
+          .then(res=>{
+            navigate('/');
+              window.location.reload();
+          })
+          .catch(err=>console.log(err));
+        })
+        .catch(err=>console.log(err));
         }
 
         //password eye button toggle

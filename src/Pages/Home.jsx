@@ -13,7 +13,7 @@ const Home = () => {
        setcategoriesss(name);
     }
     useEffect(()=>{
-        fetch(`http://localhost:5000/products/${categoresss}`)
+        fetch(`http://localhost:5000/products/category/${categoresss}`)
         .then(res=>res.json())
         .then(data=>setData(data));
     },[categoresss])

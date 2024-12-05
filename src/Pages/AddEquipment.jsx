@@ -1,6 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Swal from 'sweetalert2'
+import { AuthContext } from '../AuthProvider/Authprovider';
 const AddEquipment = () => {
+
+    const{user}=useContext(AuthContext);
+    // console.log(user);
+    const userEmail=user?.email;
+    const userName=user?.displayName;
+    console.log(userEmail,userName);
     const handleAddEquipment = (e) => {
         e.preventDefault();
 
@@ -16,7 +23,7 @@ const AddEquipment = () => {
         const time = form.time.value;
         const description = form.description.value;
 
-        const itemInfo = { image, name, category, stockStatus, price, rating, customization, time, description };
+        const itemInfo = { image, name, category, stockStatus, price, rating, customization, time, description,userEmail,userName };
 
         console.log(itemInfo);
             fetch(`http://localhost:5000/products`,{

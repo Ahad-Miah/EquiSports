@@ -1,7 +1,19 @@
 import { Link, NavLink } from 'react-router-dom';
 import logo from '../../assets/logoh.png'
+import { useContext } from 'react';
+import { AuthContext } from '../../AuthProvider/Authprovider';
+import profile from '../../assets/userProfile.webp';
 
 const Navbar = () => {
+
+    const{Signout,user,loading}=useContext(AuthContext);
+    // console.log(user);
+
+    if(loading){
+        return <div className='flex justify-center items-center'>
+            <span className="loading mx-auto loading-spinner text-neutral"></span>
+        </div>
+    }
     return (
         <div className="navbar  px-6 py-3">
         <div className="navbar-start">
@@ -64,12 +76,16 @@ const Navbar = () => {
         <div className="navbar-end">
         
              
-             <div className='flex gap-2'>
-            
-            <Link><a  className="btn">Logout</a></Link>
+        {
+            user? <div className='flex gap-2'>
+            <div title={user.displayName} className='w-12 h-12  rounded-full'>
+              <img className='w-full h-full object-cover rounded-full' src={user.photoURL?user.photoURL:profile} alt="" />
             </div>
+            <Link><a onClick={Signout} className="btn">Logout</a></Link>
+            </div>
+            :<Link to='/login'><a className="btn">Login</a></Link>
             
-            <Link to='/login'><a className="btn">Login</a></Link>
+          }
         
         </div>
 

@@ -1,17 +1,37 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { FcGoogle } from "react-icons/fc";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import Swal from 'sweetalert2'
+import { AuthContext } from "../../AuthProvider/Authprovider";
 
 const Login = () => {
+  const {login}=useContext(AuthContext);
 
     const[error,setError]=useState();
+    const navigate=useNavigate();
 
         const handleLogin=(e)=>{
             e.preventDefault();
             const email=e.target.email.value;
             const password=e.target.password.value;
 
-            console.log(email,password);
+            login(email,password)
+            .then(res => {
+              e.target.reset();
+              Swal.fire({
+                title: "Login successfully!",
+                text: "",
+                icon: "success"
+              });
+              navigate('/');
+            })
+            .catch(err => {
+              Swal.fire({
+                title: "Invalid Username or Password!",
+                text: "",
+                icon: "warning"
+              });
+            });
         }
 
     return (
