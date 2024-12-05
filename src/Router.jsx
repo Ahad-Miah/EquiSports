@@ -10,11 +10,13 @@ import Register from './Components/Register/Register';
 import Details from './Pages/Details';
 import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
 import UpdateEquipment from './Components/UpdateEquipment/UpdateEquipment';
+import ErrorPage from './Pages/ErrorPage';
 
 const Router = createBrowserRouter([
     {
         path:'/',
         element:<MainLyout></MainLyout>,
+        errorElement:<ErrorPage></ErrorPage>,
         children:[
             {
                 path:'/',

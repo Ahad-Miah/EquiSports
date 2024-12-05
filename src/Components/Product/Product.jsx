@@ -12,10 +12,10 @@ const Product = ({data}) => {
         }, [])
       
     return (
-        <div className='grid md:grid-cols-2 gap-3 lg:grid-cols-3'>
+        <div className='grid md:grid-cols-2 gap-5 lg:grid-cols-3'>
             {
                (data && data.length > 0 ? data : products)?.map((product) => (
-                    <div className="card card-compact h-[500px] bg-base-100  shadow-xl">
+                    <div className="card card-compact h-[500px] bg-base-100  shadow-xl transition-transform transform hover:scale-105">
                         <figure className='h-[70%]'>
                             <img className='w-full h-full object-cover'
                                 src={product.image}
