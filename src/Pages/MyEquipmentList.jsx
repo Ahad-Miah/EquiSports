@@ -4,6 +4,7 @@ import { AuthContext } from '../AuthProvider/Authprovider';
 import { IoTrashBinSharp } from "react-icons/io5";
 import { FaUserEdit } from "react-icons/fa";
 import { TbListDetails } from "react-icons/tb";
+import Swal from 'sweetalert2';
 
 const MyEquipmentList = () => {
     const{user}=useContext(AuthContext);
@@ -15,6 +16,38 @@ const MyEquipmentList = () => {
         .then(res=>res.json())
         .then(data=>setEquipment(data));
     },[])
+
+    const handleDelete=(id)=>{
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+          }).then((result) => {
+            if (result.isConfirmed) {
+               fetch(`http://localhost:5000/products/${id}`,{
+                method:"DELETE"
+               })
+               .then(res=>res.json())
+               .then(result=>{
+                if(result.deletedCount){
+                    Swal.fire({
+                        title: "Deleted!",
+                        text: "Your file has been deleted.",
+                        icon: "success"
+                      });
+                   }
+                   const remaining=equipment.filter((eq)=>eq._id !==id);
+                   setEquipment(remaining);
+               }); 
+            }
+          
+          });
+       
+    }
     return (
         <div className='grid md:grid-cols-2 gap-3 lg:grid-cols-3'>
         {
@@ -48,7 +81,7 @@ const MyEquipmentList = () => {
                            <Link to={`/update/${product._id}`}>
                            <button className="btn"><FaUserEdit /></button>
                            </Link>
-                            <button className="btn "><IoTrashBinSharp /></button>
+                            <button onClick={()=>handleDelete(product._id)} className="btn "><IoTrashBinSharp /></button>
                         </div>
 
                     </div>
