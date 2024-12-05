@@ -39,12 +39,16 @@ const Navbar = () => {
            <NavLink to={'/AllSportsEquipment'}>
            <li className='text-[#2D3097] font-semibold'><a>All Sports Equipment</a></li>
            </NavLink>
-              <NavLink to={'/AddEquipment'}>
+           {
+            user? <>
+            <NavLink to={'/AddEquipment'}>
            <li className='text-[#2D3097] font-semibold'><a>Add Equipment</a></li>
            </NavLink>
            <NavLink to={'/MyEquipmentList'}>
            <li className='text-[#2D3097] font-semibold'><a>My equipment List</a></li>
-           </NavLink>
+           </NavLink> </> : ""
+            
+           }  
             </ul>
           </div>
             <Link to='/'>
@@ -61,12 +65,16 @@ const Navbar = () => {
            <NavLink to={'/AllSportsEquipment'}>
            <li className='text-[#2D3097] font-semibold'><a>All Sports Equipment</a></li>
            </NavLink>
-              <NavLink to={'/AddEquipment'}>
+           {
+            user? <>
+            <NavLink to={'/AddEquipment'}>
            <li className='text-[#2D3097] font-semibold'><a>Add Equipment</a></li>
            </NavLink>
            <NavLink to={'/MyEquipmentList'}>
            <li className='text-[#2D3097] font-semibold'><a>My equipment List</a></li>
-           </NavLink>
+           </NavLink> </> : ""
+            
+           }  
            
           </ul>
         </div>

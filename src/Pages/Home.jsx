@@ -18,7 +18,7 @@ const Home = () => {
         .then(data=>setData(data));
     },[categoresss])
     return (
-        <div className='max-w-[90%] mx-auto'>
+        <div className='max-w-[95%] mx-auto'>
            <section>
             <Banner></Banner>
            </section>
