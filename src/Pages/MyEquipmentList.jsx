@@ -45,7 +45,9 @@ const MyEquipmentList = () => {
                             <Link to={`/details/${product._id}`}>
                                 <button className="btn "><TbListDetails /></button>
                             </Link>
-                            <button className="btn"><FaUserEdit /></button>
+                           <Link to={`/update/${product._id}`}>
+                           <button className="btn"><FaUserEdit /></button>
+                           </Link>
                             <button className="btn "><IoTrashBinSharp /></button>
                         </div>
 
