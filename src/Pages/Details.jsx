@@ -3,7 +3,6 @@ import { useLoaderData } from "react-router-dom";
 
 const Details = () => {
     const product=useLoaderData();
-    console.log(product);
     return (
         <div className="hero bg-base-200">
         <div className="hero-content flex-col lg:flex-row">

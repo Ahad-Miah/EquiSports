@@ -28,9 +28,7 @@ const AddEquipment = () => {
             })
             .then(res=>res.json())
             .then(result=>{
-                form.reset();
-                console.log(result)
-                
+                form.reset();  
                  if(result.insertedId){
                         Swal.fire({
                             title: "Added Successfully!",
