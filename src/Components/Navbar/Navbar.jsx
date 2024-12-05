@@ -7,8 +7,6 @@ import profile from '../../assets/userProfile.webp';
 const Navbar = () => {
 
     const{Signout,user,loading}=useContext(AuthContext);
-    // console.log(user);
-
     if(loading){
         return <div className='flex justify-center items-center'>
             <span className="loading mx-auto loading-spinner text-neutral"></span>

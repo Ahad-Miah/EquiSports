@@ -8,6 +8,7 @@ import Home from './Pages/Home';
 import Login from './Components/Login/Login';
 import Register from './Components/Register/Register';
 import Details from './Pages/Details';
+import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
 
 const Router = createBrowserRouter([
     {
@@ -25,11 +26,11 @@ const Router = createBrowserRouter([
             },
             {
                 path:'/AddEquipment',
-                element:<AddEquipment></AddEquipment>
+                element:<PrivateRoute><AddEquipment></AddEquipment></PrivateRoute>
             },
             {
                 path:'/MyEquipmentList',
-                element:<MyEquipmentList></MyEquipmentList>
+                element:<PrivateRoute><MyEquipmentList></MyEquipmentList></PrivateRoute>
             },
             {
                 path:'/login',
@@ -41,7 +42,7 @@ const Router = createBrowserRouter([
             },
             {
                 path:'/details/:id',
-                element:<Details></Details>,
+                element:<PrivateRoute><Details></Details></PrivateRoute>,
                 loader:({params})=> fetch(`http://localhost:5000/products/${params.id}`)
             }
             

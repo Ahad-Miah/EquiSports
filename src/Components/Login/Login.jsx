@@ -1,11 +1,12 @@
 import { useContext, useState } from "react";
 import { FcGoogle } from "react-icons/fc";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import Swal from 'sweetalert2'
 import { AuthContext } from "../../AuthProvider/Authprovider";
 
 const Login = () => {
   const {login}=useContext(AuthContext);
+  const location=useLocation();
 
     const[error,setError]=useState();
     const navigate=useNavigate();
@@ -23,7 +24,7 @@ const Login = () => {
                 text: "",
                 icon: "success"
               });
-              navigate('/');
+              navigate(location?.state?location.state:'/');
             })
             .catch(err => {
               Swal.fire({

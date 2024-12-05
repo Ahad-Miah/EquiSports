@@ -7,7 +7,7 @@ export const AuthContext=createContext(null);
 const Authprovider = ({children}) => {
 
         const[user,setUser]=useState();
-        const[loading,setLoading]=useState(false);
+        const[loading,setLoading]=useState(true);
     //register
     const register=(email,password)=>{
         setLoading(true);
