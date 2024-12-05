@@ -3,7 +3,10 @@ import { FcGoogle } from "react-icons/fc";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Swal from 'sweetalert2'
 import { AuthContext } from "../../AuthProvider/Authprovider";
+import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { auth } from "../../firebase.init";
 
+const provider=new GoogleAuthProvider();
 const Login = () => {
   const {login}=useContext(AuthContext);
   const location=useLocation();
@@ -35,6 +38,15 @@ const Login = () => {
             });
         }
 
+        // handle google login
+
+        const handleGoogleLogin=()=>{
+          signInWithPopup(auth,provider)
+          .then(res=>{
+            navigate(location?.state?location.state:'/');
+          })
+        }
+
     return (
         <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl mx-auto my-12">
         <h1 className='text-2xl font-bold text-center'>Login</h1>
@@ -64,7 +76,7 @@ const Login = () => {
         <div className='px-8 pb-8'>
           <div className="divider">OR</div>
           <div className="form-control mt-6">
-            <button  className="btn btn-primary bg-slate-700 hover:bg-green-800"><FcGoogle />Login With Google</button>
+            <button onClick={handleGoogleLogin}  className="btn btn-primary bg-slate-700 hover:bg-green-800"><FcGoogle />Login With Google</button>
           </div>
         </div>
       </div>

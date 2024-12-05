@@ -1,13 +1,18 @@
 import { useContext, useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../AuthProvider/Authprovider";
+import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { auth } from "../../firebase.init";
 
+
+const provider=new GoogleAuthProvider();
 const Register = () => {
 
   const {register,handleUpdateProfile,setUser}=useContext(AuthContext);
   const navigate=useNavigate();
+  const location=useLocation();
 
         const handleRegistration=(e)=>{
             e.preventDefault();
@@ -28,7 +33,7 @@ const Register = () => {
           setUser(res.user);
           handleUpdateProfile(name,photo)
           .then(res=>{
-            navigate('/');
+            navigate(location?.state?location.state:'/');
               window.location.reload();
           })
           .catch(err=>console.log(err));
@@ -40,6 +45,13 @@ const Register = () => {
         const[active,setActive]=useState(true);
         const handleShow=()=>{
             setActive(!active);
+        }
+
+        const handleGoogleLogin=()=>{
+          signInWithPopup(auth,provider)
+          .then(res=>{
+            navigate(location?.state?location.state:'/');
+          })
         }
 
     return (
@@ -80,7 +92,7 @@ const Register = () => {
       <div className='px-8 pb-8'>
         <div className="divider">OR</div>
         <div className="form-control mt-6">
-          <button  className="btn btn-primary bg-slate-700 hover:bg-green-800"><FcGoogle />Login With Google</button>
+          <button onClick={handleGoogleLogin} className="btn btn-primary bg-slate-700 hover:bg-green-800"><FcGoogle />Login With Google</button>
         </div>
         </div>
       <div>
