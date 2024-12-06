@@ -10,10 +10,10 @@ const Categories = ({handleCategory}) => {
       .then(data=>SetCategories(data));
     },[])
     return (
-        <section className="py-16 text-gray-900">
+        <section className="py-16">
         <div className="container mx-auto text-center mb-12">
           <h2 className="text-4xl font-bold text-indigo-600 mb-6">Sports Categories</h2>
-          <p className="text-lg text-gray-600">Browse through our wide range of sports equipment!</p>
+          <p className="text-lg">Browse through our wide range of sports equipment!</p>
         </div>
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-8">
           {categoriess?.map((category) => (
