@@ -5,14 +5,17 @@ import { AuthContext } from '../../AuthProvider/Authprovider';
 import profile from '../../assets/userProfile.webp';
 import 'react-tooltip/dist/react-tooltip.css'
 import { Tooltip } from 'react-tooltip'
+import spinner from '../../assets/Lottie/Lottie.json'
+import Lottie from "lottie-react";
+
 
 const Navbar = () => {
 
     const{Signout,user,loading}=useContext(AuthContext);
     if(loading){
-        return <div className='flex justify-center items-center'>
-            <span className="loading mx-auto loading-spinner text-neutral"></span>
-        </div>
+        return <div className='flex justify-center w-full '>
+        <Lottie animationData={spinner}></Lottie>
+    </div>
     }
     return (
         <div className="navbar  px-2 md:px-14 py-2 border border-b-2 mb-5">
