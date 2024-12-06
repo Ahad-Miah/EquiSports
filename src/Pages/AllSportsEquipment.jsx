@@ -1,15 +1,22 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 
 const AllSportsEquipment = () => {
     const allData = useLoaderData();
     const[allEquipments,setAllEquipments]=useState(allData);
+    const[sort,setSort]=useState();
+
+    useEffect(()=>{
+        fetch(`http://localhost:5000/products/sort`)
+        .then(res=>res.json())
+        .then(data=>setSort(data));
+    },[])
 
     const handleSort = () => {
-        const sortedEquipments = [...allEquipments].sort((a, b) => a.price - b.price); 
-        setAllEquipments(sortedEquipments); 
+        setAllEquipments(sort);
       };
     return (
+        
         <div>
            <div className='flex justify-center'>
            <button onClick={handleSort} className='btn btn-primary'>Sort by price</button>
