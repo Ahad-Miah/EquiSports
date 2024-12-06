@@ -18,14 +18,14 @@ const Home = () => {
         .then(data=>setData(data));
     },[categoresss])
     return (
-        <div className='max-w-[95%] mx-auto'>
+        <div className='max-w-[90%] mx-auto'>
            <section>
             <Banner></Banner>
            </section>
-           <section>
+           <section className='max-w-[95%] mx-auto'>
             <Categories handleCategory={handleCategory}></Categories>
            </section>
-           <section>
+           <section className='max-w-[95%] mx-auto'>
             <Product data={data}></Product>
            </section>
            <section>

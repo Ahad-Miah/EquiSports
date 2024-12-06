@@ -3,6 +3,8 @@ import logo from '../../assets/logoh.png'
 import { useContext } from 'react';
 import { AuthContext } from '../../AuthProvider/Authprovider';
 import profile from '../../assets/userProfile.webp';
+import 'react-tooltip/dist/react-tooltip.css'
+import { Tooltip } from 'react-tooltip'
 
 const Navbar = () => {
 
@@ -13,7 +15,7 @@ const Navbar = () => {
         </div>
     }
     return (
-        <div className="navbar  px-6 py-3">
+        <div className="navbar  px-2 md:px-14 py-2 border border-b-2 mb-5">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn bg-white btn-ghost lg:hidden">
@@ -53,7 +55,7 @@ const Navbar = () => {
           </div>
             <Link to='/'>
             <div className='w-[170px] h-[100px] flex items-center justify-center my-auto'>
-            <img className='w-full object-cover' src={logo} alt="" />
+            <img className='w-[100px] md:w-full object-cover' src={logo} alt="" />
             </div>
             </Link>
         </div>
@@ -84,12 +86,18 @@ const Navbar = () => {
              
         {
             user? <div className='flex gap-2'>
-            <div title={user.displayName} className='w-12 h-12  rounded-full'>
+            <div data-tooltip-id="my-tooltip" data-tooltip-content={`${user.displayName}`} className='w-12 h-12  rounded-full'>
+            <Tooltip id="my-tooltip" />
               <img className='w-full h-full object-cover rounded-full' src={user.photoURL?user.photoURL:profile} alt="" />
             </div>
-            <Link><a onClick={Signout} className="btn">Logout</a></Link>
+            <Link><a onClick={Signout} className="btn bg-gradient-to-r from-cyan-500 to-blue-500">Logout</a></Link>
             </div>
-            :<Link to='/login'><a className="btn">Login</a></Link>
+
+            :<>
+             <Link to='/login'><a className="btn mr-2 bg-gradient-to-r from-cyan-500 to-blue-500 animate-pulse">Login</a></Link>
+             <Link to='/register'><a className="btn bg-gradient-to-r from-blue-700 to-cyan-500 animate-pulse">Register</a></Link>
+            </>
+           
             
           }
         

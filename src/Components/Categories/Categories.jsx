@@ -1,21 +1,5 @@
 import { useEffect, useState } from "react";
 
-// const categories = [
-//     { name: "Treadmill", icon: "treadmill-icon-url" },
-//   { name: "Walking Pad", icon: "walking-pad-icon-url" },
-//   { name: "Exercise Cycle", icon: "exercise-cycle-icon-url" },
-//   { name: "Gym Equipment", icon: "gym-equipment-icon-url" },
-//   { name: "Indoor Games", icon: "indoor-games-icon-url" },
-//   { name: "Sports", icon: "sports-icon-url" },
-//   { name: "Yoga Item", icon: "yoga-item-icon-url" },
-//   { name: "Sports Wear", icon: "sports-wear-icon-url" },
-//   { name: "Swimming Item", icon: "swimming-item-icon-url" },
-//   { name: "Dumbbells", icon: "dumbbells-icon-url" },
-//   { name: "Personal Fitness", icon: "personal-fitness-icon-url" },
-//   { name: "Basketball", icon: "basketball-icon-url" },
-//   ];
-
-
 const Categories = ({handleCategory}) => {
 
   const[categoriess,SetCategories]=useState();

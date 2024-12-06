@@ -8,7 +8,7 @@ import { auth } from "../../firebase.init";
 
 const provider=new GoogleAuthProvider();
 const Login = () => {
-  const {login}=useContext(AuthContext);
+  const {login,setLoading}=useContext(AuthContext);
   const location=useLocation();
 
     const[error,setError]=useState();
@@ -30,6 +30,7 @@ const Login = () => {
               navigate(location?.state?location.state:'/');
             })
             .catch(err => {
+              setLoading(false);
               Swal.fire({
                 title: "Invalid Username or Password!",
                 text: "",
