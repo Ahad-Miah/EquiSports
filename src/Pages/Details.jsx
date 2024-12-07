@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet";
 import { useLoaderData } from "react-router-dom";
 
 
@@ -5,6 +6,9 @@ const Details = () => {
     const product=useLoaderData();
     return (
         <div className="hero bg-base-200">
+          <Helmet>
+            <title>Details || EquiSport</title>
+          </Helmet>
         <div className="hero-content flex-col lg:flex-row">
           <div className="w-[50%] lg:p-16">
           <img

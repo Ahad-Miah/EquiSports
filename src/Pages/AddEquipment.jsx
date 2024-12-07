@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import Swal from 'sweetalert2'
 import { AuthContext } from '../AuthProvider/Authprovider';
+import { Helmet } from 'react-helmet';
 const AddEquipment = () => {
 
     const{user}=useContext(AuthContext);
@@ -26,7 +27,7 @@ const AddEquipment = () => {
         const itemInfo = { image, name, category, stockStatus, price, rating, customization, time, description,userEmail,userName };
 
         console.log(itemInfo);
-            fetch(`http://localhost:5000/products`,{
+            fetch(`https://assignment-10-server-lovat-two.vercel.app/products`,{
                 method:"POST",
                 headers:{
                     'content-type':'application/json',
@@ -55,6 +56,9 @@ const AddEquipment = () => {
 
     return (
         <div className='w-full mx-auto border p-6 my-12'>
+            <Helmet>
+                <title>Add Equipment || EquiSport</title>
+            </Helmet>
 
             <h1 className='font-bold text-[#3A3B98] text-4xl text-center mb-3'>Add Equipment</h1>
             <form onSubmit={handleAddEquipment}>

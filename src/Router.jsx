@@ -25,7 +25,7 @@ const Router = createBrowserRouter([
             {
                 path:'/AllSportsEquipment',
                 element:<AllSportsEquipment></AllSportsEquipment>,
-                loader:()=> fetch('http://localhost:5000/products')
+                loader:()=> fetch('https://assignment-10-server-lovat-two.vercel.app/products')
             },
             {
                 path:'/AddEquipment',
@@ -46,12 +46,12 @@ const Router = createBrowserRouter([
             {
                 path:'/details/:id',
                 element:<PrivateRoute><Details></Details></PrivateRoute>,
-                loader:({params})=> fetch(`http://localhost:5000/products/${params.id}`)
+                loader:({params})=> fetch(`https://assignment-10-server-lovat-two.vercel.app/products/${params.id}`)
             },
             {
                 path:'/update/:id',
                 element:<UpdateEquipment></UpdateEquipment>,
-                loader: ({params})=> fetch(`http://localhost:5000/products/${params.id}`)
+                loader: ({params})=> fetch(`https://assignment-10-server-lovat-two.vercel.app/products/${params.id}`)
             }
             
         ]

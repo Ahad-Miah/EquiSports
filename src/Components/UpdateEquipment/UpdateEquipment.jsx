@@ -22,7 +22,7 @@ const UpdateEquipment = () => {
 
         const itemInfo = { image, name, category, stockStatus, price, rating, customization, time, description};
 
-        fetch(`http://localhost:5000/products/${singleEquipment._id}`,{
+        fetch(`https://assignment-10-server-lovat-two.vercel.app/products/${singleEquipment._id}`,{
             method:"PUT",
             headers:{
                 'content-type':'application/json',

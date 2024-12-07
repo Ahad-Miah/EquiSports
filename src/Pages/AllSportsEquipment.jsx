@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Helmet } from 'react-helmet';
 import { Link, useLoaderData } from 'react-router-dom';
 
 const AllSportsEquipment = () => {
@@ -7,7 +8,7 @@ const AllSportsEquipment = () => {
     const[sort,setSort]=useState();
 
     useEffect(()=>{
-        fetch(`http://localhost:5000/products/sort`)
+        fetch(`https://assignment-10-server-lovat-two.vercel.app/products/sort`)
         .then(res=>res.json())
         .then(data=>setSort(data));
     },[])
@@ -18,6 +19,9 @@ const AllSportsEquipment = () => {
     return (
         
         <div>
+            <Helmet>
+                <title>All Sports Equipment || EquiSport</title>
+            </Helmet>
            <div className='flex justify-center'>
            <button onClick={handleSort} className='btn btn-primary'>Sort by price</button>
            </div>

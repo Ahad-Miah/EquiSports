@@ -5,6 +5,7 @@ import { IoTrashBinSharp } from "react-icons/io5";
 import { FaUserEdit } from "react-icons/fa";
 import { TbListDetails } from "react-icons/tb";
 import Swal from 'sweetalert2';
+import { Helmet } from 'react-helmet';
 
 const MyEquipmentList = () => {
     const{user}=useContext(AuthContext);
@@ -12,7 +13,7 @@ const MyEquipmentList = () => {
     const email=user?.email;
 
     useEffect(()=>{
-        fetch(`http://localhost:5000/products/email/${email}`)
+        fetch(`https://assignment-10-server-lovat-two.vercel.app/products/email/${email}`)
         .then(res=>res.json())
         .then(data=>setEquipment(data));
     },[])
@@ -28,7 +29,7 @@ const MyEquipmentList = () => {
             confirmButtonText: "Yes, delete it!"
           }).then((result) => {
             if (result.isConfirmed) {
-               fetch(`http://localhost:5000/products/${id}`,{
+               fetch(`https://assignment-10-server-lovat-two.vercel.app/products/${id}`,{
                 method:"DELETE"
                })
                .then(res=>res.json())
@@ -50,6 +51,9 @@ const MyEquipmentList = () => {
     }
     return (
         <div className='grid md:grid-cols-2 gap-3 lg:grid-cols-3'>
+            <Helmet>
+                <title>My Equipment List || EquiSport</title>
+            </Helmet>
         {
            equipment?.map((product) => (
                 <div className="card card-compact h-[500px] bg-base-100  shadow-xl">

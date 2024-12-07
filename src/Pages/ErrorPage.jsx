@@ -1,9 +1,13 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
 
 const ErrorPage = () => {
     return (
             <div className="flex items-center justify-center h-screen bg-gradient-to-br from-blue-500 via-purple-600 to-pink-500">
+              <Helmet>
+                <title>Error</title>
+              </Helmet>
               <div className="text-center">
                 <h1 className="text-9xl font-bold text-white animate-bounce">404</h1>
                 <h2 className="mt-4 text-4xl font-extrabold text-white sm:text-5xl">

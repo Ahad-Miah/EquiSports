@@ -4,6 +4,7 @@ import Categories from '../Components/Categories/Categories';
 import Featured from '../Components/Featured/Featured';
 import Reviews from '../Components/Reviews/Reviews';
 import Product from '../Components/Product/Product';
+import { Helmet } from 'react-helmet';
 
 const Home = () => {
     const[categoresss,setcategoriesss]=useState();
@@ -13,12 +14,15 @@ const Home = () => {
        setcategoriesss(name);
     }
     useEffect(()=>{
-        fetch(`http://localhost:5000/products/category/${categoresss}`)
+        fetch(`https://assignment-10-server-lovat-two.vercel.app/products/category/${categoresss}`)
         .then(res=>res.json())
         .then(data=>setData(data));
     },[categoresss])
     return (
         <div className='max-w-[90%] mx-auto'>
+            <Helmet>
+                <title>Home || Equisport</title>
+            </Helmet>
            <section>
             <Banner></Banner>
            </section>
