@@ -8,7 +8,7 @@ const Product = ({data}) => {
         useEffect(() => {
                 fetch('https://assignment-10-server-lovat-two.vercel.app/products')
                 .then(res => res.json())
-                .then(data => setProducts(data));  
+                .then(data => setProducts(data.slice(0,6)));  
         }, [])
       
     return (
