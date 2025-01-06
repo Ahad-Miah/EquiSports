@@ -6,7 +6,7 @@ import bannerFour from '../../assets/ba4.jpg'
 const Banner = () => {
     return (
         <div className=''>
-        <div className="carousel w-full md:w-full mx-auto  h-[600px]   ">
+        <div className="carousel w-full md:w-full mx-auto  h-[400px] ">
             <div
              style={{ backgroundImage: `url(${bannerOne})` }}
             id="item1" className="carousel-item w-full bg-cover bg-center bg-opacity-5">

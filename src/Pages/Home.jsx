@@ -19,23 +19,23 @@ const Home = () => {
         .then(data=>setData(data));
     },[categoresss])
     return (
-        <div className='max-w-[90%] mx-auto'>
+        <div className=''>
             <Helmet>
                 <title>Home || Equisport</title>
             </Helmet>
            <section>
             <Banner></Banner>
            </section>
-           <section className='max-w-[95%] mx-auto'>
+           <section className='max-w-[90%] mx-auto'>
             <Categories handleCategory={handleCategory}></Categories>
            </section>
-           <section className='max-w-[95%] mx-auto'>
+           <section className='max-w-[90%] mx-auto'>
             <Product data={data}></Product>
            </section>
-           <section>
+           <section className='max-w-[90%] mx-auto'>
             <Featured></Featured>
            </section>
-           <section>
+           <section className='max-w-[90%] mx-auto'>
             <Reviews></Reviews>
            </section>
         </div>
