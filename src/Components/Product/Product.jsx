@@ -12,7 +12,7 @@ const Product = ({data}) => {
         }, [])
       
     return (
-        <div className='grid md:grid-cols-2 gap-5 lg:grid-cols-3'>
+        <div className='grid md:grid-cols-3 gap-5 lg:grid-cols-4'>
             {
                (data && data.length > 0 ? data : products)?.map((product) => (
                     <div className="card rounded-none card-compact h-[500px] bg-base-100 p-5 shadow-xl transition-transform transform hover:scale-105">

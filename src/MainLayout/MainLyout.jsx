@@ -6,7 +6,7 @@ import Footer from '../Components/Footer/Footer';
 const MainLyout = () => {
     return (
         <div>
-            <nav className='w-full'>
+            <nav className='w-full sticky z-10 top-0'>
             <Navbar></Navbar>
             </nav>
             <section className='max-w-[100%] mx-auto'>

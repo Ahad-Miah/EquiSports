@@ -35,7 +35,7 @@ const Navbar = () => {
         </div>
     }
     return (
-      <div className="navbar px-2 md:px-14 py-2 border-b-2 ">
+      <div className="navbar px-2 md:px-14 py-2 border-b-2 backdrop-blur bg-white/70">
   {/* Navbar Start */}
   <div className="navbar-start">
     {/* Drawer for small screens */}
