@@ -45,7 +45,7 @@ const Router = createBrowserRouter([
             },
             {
                 path:'/details/:id',
-                element:<PrivateRoute><Details></Details></PrivateRoute>,
+                element:<Details></Details>,
                 loader:({params})=> fetch(`https://assignment-10-server-lovat-two.vercel.app/products/${params.id}`)
             },
             {
