@@ -43,7 +43,7 @@ This sports equipment platform is a comprehensive, user-friendly solution design
 
 ## Local machine Run
  ```bash
-  npm npm i
+  npm  i
 ```
  ```bash
   npm run dev
