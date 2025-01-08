@@ -42,8 +42,12 @@ This sports equipment platform is a comprehensive, user-friendly solution design
 - "sweetalert2": "^11.14.5"
 
 ## Local machine Run
- npm i
- npm run dev
+ ```bash
+  npm npm i
+```
+ ```bash
+  npm run dev
+```
 
 ## Live link
 https://gregarious-crostata-c9ae8a.netlify.app/
