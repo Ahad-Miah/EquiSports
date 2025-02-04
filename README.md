@@ -1,5 +1,6 @@
 ## EquiSport
 This sports equipment platform is a comprehensive, user-friendly solution designed to cater to the needs of sports enthusiasts, athletes, and anyone looking for quality sports equipment. The website offers a streamlined and organized interface, enabling users to explore a wide range of sports equipment categorized for easier navigation. Whether you're looking for cricket gear, football accessories, gym equipment, or other sports essentials, this platform provides a one-stop destination to browse, manage, and purchase the items you need.
+![Equisports](https://i.ibb.co.com/Kx70fPcm/equisports.png)
 
 ## Technologies Used 
 - Html
